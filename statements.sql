@@ -119,15 +119,15 @@ GROUP BY id_usuario, nombre, apellido;
 SELECT * FROM usuarios_lenguajes WHERE edad > 30 ORDER BY LENGTH(lenguaje) ASC LIMIT 1;
 
 -- Ejercicio 31: Seleccionar los usuarios que saben al menos un lenguaje y ordenarlos por nombre de lenguaje. 
--- Tu respuesta aquí
+SELECT id_usuario, nombre, apellido, lenguaje FROM usuarios_lenguajes WHERE lenguaje IS NOT NULL ORDER BY lenguaje;
 
 
 -- Ejercicio 32: Contar cuántos usuarios tienen una edad entre 20 y 25 años y saben al menos un lenguaje. 
--- Tu respuesta aquí
+SELECT COUNT(*) as cantidad FROM usuarios_lenguajes WHERE edad BETWEEN 20 AND 25 AND lenguaje IS NOT NULL;
 
 
 -- Ejercicio 33: Seleccionar los usuarios que no tienen un lenguaje asociado llamado 'SQL'.
--- Tu respuesta aquí
+SELECT nombre FROM usuarios_lenguajes WHERE lenguaje IS NULL OR lenguaje <> 'SQL';
 
 
 -- Ejercicio 34: Encontrar el lenguaje con más caracteres entre los usuarios que tienen al menos 30 años.
