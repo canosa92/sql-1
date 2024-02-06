@@ -131,29 +131,29 @@ SELECT nombre FROM usuarios_lenguajes WHERE lenguaje IS NULL OR lenguaje <> 'SQL
 
 
 -- Ejercicio 34: Encontrar el lenguaje con más caracteres entre los usuarios que tienen al menos 30 años.
--- Tu respuesta aquí
+SELECT lenguaje FROM usuarios_lenguajes WHERE edad >= 30 ORDER BY LENGTH(lenguaje) DESC LIMIT 1;
 
 
 -- Ejercicio 35: Seleccionar los usuarios y mostrar la diferencia entre su edad y la edad promedio de todos los usuarios
--- Tu respuesta aquí
+SELECT id_usuario, nombre, apellido, edad, edad - (SELECT AVG(edad) FROM usuarios_lenguajes) as diferencia_edad FROM usuarios_lenguajes;
 
 
 -- Ejercicio 36: Contar cuántos usuarios tienen un lenguaje asociado que contiene la palabra 'Script'.
--- Tu respuesta aquí
+SELECT COUNT(*) as cantidad FROM usuarios_lenguajes WHERE lenguaje LIKE '%Script%';
 
 
 -- Ejercicio 37: Seleccionar los usuarios que tienen al menos un lenguaje asociado y mostrar la longitud de su nombre. 
--- Tu respuesta aquí
+SELECT id_usuario, nombre, LENGTH(nombre) as longitud_nombre FROM usuarios_lenguajes WHERE lenguaje IS NOT NULL;
 
 
 -- Ejercicio 38: Encontrar el lenguaje del usuario creado más tarde. 
--- Tu respuesta aquí
+SELECT lenguaje FROM usuarios_lenguajes ORDER BY id_usuario DESC LIMIT 1;
 
 
 -- Ejercicio 39: Seleccionar los usuarios y mostrar la suma de sus edades. 
--- Tu respuesta aquí
+SELECT SUM(edad) as suma_edades FROM usuarios_lenguajes;
 
 
 -- Ejercicio 40: Contar cuántos usuarios tienen un lenguaje asociado que comienza con la letra 'P' y tienen menos de 28 años.
--- Tu respuesta aquí
+SELECT COUNT(*) as cantidad FROM usuarios_lenguajes WHERE lenguaje LIKE 'P%' AND edad < 28;
 
